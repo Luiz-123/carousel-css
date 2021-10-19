@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>filterable responsive lightbox gallery tutorial</title>
+
+    <!-- magnific-popup css cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+
+  
+    <!-- bootstrap 4 cdn link  -->	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+    <!-- custom css file link  -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="gallery">
+
+    <ul class="controls">
+        <li class="buttons active" data-filter="all">all</li>
+        <li class="buttons" data-filter="ice-cream">ice-cream</li>
+        <li class="buttons" data-filter="chocolate">chocolate</li>
+        <li class="buttons" data-filter="cake">cake</li>
+        <li class="buttons" data-filter="juice">juice</li>
+        <li class="buttons" data-filter="sandwich">sandwich</li>
+    </ul>
+
+
+
+    <div class="image-container">
+	<div>	
+            <div class="image ice-cream">
+		<a href="images/1.jpg"><img src="images/1.jpg" alt=""></a>
+	    </div>
+	    <div class="image2 ice-cream">Café da manhã</div>
+        </div>
+	
+        <div>	
+            <div class="image ice-cream">
+		<a href="images/2.jpg"><img src="images/2.jpg" alt=""></a>
+	    </div>
+	    <div class="image2 ice-cream">Café da manhã</div>
+        </div>
+
+	<div>	
+            <div class="image ice-cream">
+		<a href="images/3.jpg"><img src="images/3.jpg" alt=""></a>
+	    </div>
+	    <div class="image2 ice-cream">Café da manhã</div>
+        </div>
+    </div>
+
+	
+
+    <div class="image-container">	                
+        <a href="images/4.jpg" class="image chocolate">
+            <img src="images/4.jpg" alt="">
+        </a>
+        <a href="images/5.jpg" class="image chocolate">
+            <img src="images/5.jpg" alt="">
+        </a>
+
+        <a href="images/6.jpg" class="image cake">
+            <img src="images/6.jpg" alt="">
+        </a>
+        <a href="images/7.jpg" class="image cake">
+            <img src="images/7.jpg" alt="">
+        </a>
+        <a href="images/8.jpg" class="image cake">
+            <img src="images/8.jpg" alt="">
+        </a>
+        <a href="images/9.jpg" class="image cake">
+            <img src="images/9.jpg" alt="">
+        </a>
+        <a href="images/10.jpg" class="image cake">
+            <img src="images/10.jpg" alt="">
+        </a>
+
+        <a href="images/11.jpg" class="image juice">
+            <img src="images/11.jpg" alt="">
+        </a>
+        <a href="images/12.jpg" class="image juice">
+            <img src="images/12.jpg" alt="">
+        </a>
+        <a href="images/13.jpg" class="image juice">
+            <img src="images/13.jpg" alt="">
+        </a>
+
+        <a href="images/14.jpg" class="image sandwich">
+            <img src="images/14.jpg" alt="">
+        </a>
+        <a href="images/15.jpg" class="image sandwich">
+            <img src="images/15.jpg" alt="">
+        </a>
+        <a href="images/16.jpg" class="image sandwich">
+            <img src="images/16.jpg" alt="">
+        </a>
+        <a href="images/17.jpg" class="image sandwich">
+            <img src="images/17.jpg" alt="">
+        </a>
+
+    </div>
+
+</div>
+
+
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- magnific popup js cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $('.buttons').click(function(){
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        var filter = $(this).attr('data-filter')
+
+        if(filter == 'all'){
+            $('.image').show(400);	    
+        }else{
+            $('.image').not('.'+filter).hide(200);
+            $('.image').filter('.'+filter).show(400);
+        }
+
+    });
+
+    $('.gallery').magnificPopup({
+
+        delegate:'a',
+        type:'image',
+        gallery:{
+            enabled:true
+        }
+
+    });
+
+});
+
+</script>
+    
+</body>
+</html>
